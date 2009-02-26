@@ -13,27 +13,23 @@ require_once( $CFG->dirroot .'/lib/pagelib.php' );
 global $DB;
 
 $courseid = required_param( 'courseid', PARAM_INT );
+//  Load the course
+$course = get_record('course', 'id', $courseid);
+global $COURSE;
+$COURSE = $course;
+$title = get_string('giverating','block_rate_course');
+$link[] = array('name' => $title,'link' => '','type' => 'misc');
+$link = build_navigation($link);
+print_header_simple($title, $title, $link);
 
 //  Require user to be logged in to view this page
 if((!isloggedin() || isguestuser())) {
-    print_header('Not Logged In', 'Please login', '', '' , '', true);
-
     notice_yesno(get_string('noguestuseage', 'block_rate_course').'<br /><br />'.get_string('liketologin'),
     $CFG->wwwroot.'/login/index.php', get_referer(false));
     print_footer();
     exit();
 }
 require_capability('block/rate_course:rate', get_context_instance(CONTEXT_COURSE,$courseid));
-
-//  Load the course
-$course = $DB->get_record('course', array('id'=>$courseid));
-global $COURSE;
-$COURSE = $course;
-$title = get_string('giverating','block_rate_course');
-$link[] = array('name' => $title,'link' => '','type' => 'misc');
-
-$link = build_navigation($link);
-print_header($title, $title, $link);
 
 echo "<div style='text-align:center'>";
 $block = block_instance('rate_course');
