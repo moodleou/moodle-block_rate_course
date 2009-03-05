@@ -13,7 +13,7 @@ class block_rate_course extends block_list {
 
     function init() {
         $this->title = get_string('courserating','block_rate_course');
-        $this->version = 2009020307;
+        $this->version = 2009030500;
     }
 
     function applicable_formats() {
