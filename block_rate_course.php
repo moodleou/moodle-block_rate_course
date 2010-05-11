@@ -27,7 +27,7 @@ class block_rate_course extends block_list {
             return $this->content;
         }
 
-        if (isset($CFG->ousite)) {
+        if (class_exists('ouflags')) {
             //Ensure that block is not displayed if this is a non-OER category.
             $oercategories = explode(',',$CFG->oercategories);
             if( !( in_array( $COURSE->category, $oercategories ) ) ){
@@ -39,7 +39,7 @@ class block_rate_course extends block_list {
         $this->content->items = array();
         $this->content->icons = array();
 
-        if (isset($CFG->ousite)) {
+        if (class_exists('ouflags')) {
             //  Get the Give a Review instance id
             $params = array('Give a review',$COURSE->id);
             $questionnaire = $DB->get_record_sql("SELECT id,sid FROM {questionnaire}
