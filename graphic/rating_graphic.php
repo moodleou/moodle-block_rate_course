@@ -5,8 +5,14 @@
  * an image to the browser with the correct headers.  The image will contain between one
  * and five stars
  *
+ * Original Copyright of Moodle1.9 Block
  * @copyright &copy; 2008 The Open University
  * @author j.m.gray@open.ac.uk
+ * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ *
+ * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
+ * @copyright &copy; 2011 Comverse LTD.
+ * @author chysch@atarplpl.co.il 
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
