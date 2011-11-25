@@ -43,7 +43,7 @@ class block_rate_course extends block_list
         $this->content->items = array();
         $this->content->icons = array();
 
-        if (isset($CFG->block_rate_course_quest)) {
+        if (!empty($CFG->block_rate_course_quest)) {
             //  Get the Give a Review instance id
             $questionnaire = $DB->get_record_sql(
                     "SELECT id,sid FROM {questionnaire} WHERE name = ? AND course = ?",
