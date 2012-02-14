@@ -21,5 +21,5 @@ $string['rating_users'] ='Rated by {$a} user(s)';
 
 // questionnaire integration 
 $string['survey'] = 'What is the questionnaire name?';
-$string['survey_help'] = 'This is the questionnaire module which will be linked to';
+$string['survey_help'] = 'This is the questionnaire module which will be linked to (leave empty to not link questionnaire)';
 $string['viewreview'] = 'View questionnaire responses';
