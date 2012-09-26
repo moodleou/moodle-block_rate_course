@@ -15,21 +15,35 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Rate course block backup
  *
- * @package    block
+ * @package    blocks
  * @subpackage rate_course
- * @copyright  2009 Jenny Gray
+ * @copyright  2012 Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
- * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
- * @copyright &copy; 2011 Comverse LTD.
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-$plugin->version = 2011062301;
+require_once($CFG->dirroot . '/blocks/rate_course/backup/moodle2/backup_rate_course_stepslib.php');
 
-$plugin->requires     = 2012062500; // YYYYMMDDHH (This is the release version for Moodle 2.0).
-$plugin->maturity     = MATURITY_STABLE;
-$plugin->release      = 'MOODLE_23_STABLE';
-$plugin->component    = 'block_rate_course';
+class backup_rate_course_block_task extends backup_block_task {
+
+    protected function define_my_settings() {
+    }
+
+    protected function define_my_steps() {
+        $this->add_step(new backup_rate_course_block_structure_step('rate_course_structure',
+            'rate_course.xml'));
+    }
+
+    public function get_fileareas() {
+        return array();
+    }
+
+    public function get_configdata_encoded_attributes() {
+        return array();
+    }
+
+    static public function encode_content_links($content) {
+        return $content; // No special encoding of links.
+    }
+}
