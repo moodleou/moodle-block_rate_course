@@ -27,6 +27,29 @@
 
 $capabilities = array(
 
+    'block/rate_course:addinstance' => array(
+        'riskbitmask' => RISK_SPAM | RISK_XSS,
+
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        ),
+
+        'clonepermissionsfrom' => 'moodle/site:manageblocks'
+    ),
+
+        'block/rate_course:myaddinstance' => array(
+                'riskbitmask' => RISK_SPAM | RISK_XSS,
+        
+                'captype' => 'write',
+                'contextlevel' => CONTEXT_BLOCK,
+                'archetypes' => array(
+                        'user' => CAP_ALLOW
+                ),
+        ),
+
     'block/rate_course:rate' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
