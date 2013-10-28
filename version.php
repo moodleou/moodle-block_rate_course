@@ -27,9 +27,9 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-$plugin->version = 2013030402;
+$plugin->version = 2013102800;
 
 $plugin->requires     = 2012112900;
 $plugin->maturity     = MATURITY_STABLE;
-$plugin->release      = 'MOODLE_24_STABLE';
+$plugin->release      = 'MOODLE_25_STABLE';
 $plugin->component    = 'block_rate_course';

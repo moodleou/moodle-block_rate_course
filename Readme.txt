@@ -1,6 +1,13 @@
 Latest changes
 ==============
 
+28 Oct 2013
+-----------
+
+Moodle 2.5 compliance
+Migrated language packs to ATMOS
+
+
 26 Sept 2012
 ------------
 
