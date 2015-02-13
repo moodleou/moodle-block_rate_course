@@ -29,14 +29,13 @@
 
 /* List of handlers. */
 
-$handlers = array (
 
 /*
  * Course deleted.
 */
-    'course_deleted' => array (
-        'handlerfile'      => '/blocks/rate_course/lib.php', // Where to call.
-        'handlerfunction'  => 'course_delete', // What to call.
-        'schedule'         => 'instant'
+$observers = array(
+    array(
+        'eventname' => '\core\event\course_deleted',
+        'callback'  => '\block_rate_course\observer::course_delete'
     )
 );

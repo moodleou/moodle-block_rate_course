@@ -15,20 +15,27 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Strings for component 'block_rate_course', language 'de', branch 'MOODLE_20_STABLE'
  *
  * @package    block
  * @subpackage rate_course
- * @copyright  2009 Jenny Gray
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright &copy; 2008 The Open University
+ * @author     Joachim Vogelgesang
+ * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  *
  * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
  * @copyright &copy; 2011 Comverse LTD.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-$plugin->version = 2014101600;
+$string['courserating'] = 'Kurs Bewertung';
 
-$plugin->requires     = 2010112400; // YYYYMMDDHH (This is the release version for Moodle 2.0).
-$plugin->maturity     = MATURITY_BETA;
-$plugin->release      = '1.0';
+$string['completed'] = 'Vielen Dank. Sie haben bereits eine Bewertung abgegeben.';
+$string['giverating'] = 'Bitte bewerten Sie';
+$string['intro'] = 'Bitte geben Sie an, wie hoch Sie bewerten.';
+$string['submit'] = 'Meine Bewertung abschicken';
+$string['noguestuseage'] = 'Um diesen Kurs bewerten zu können, müssen Sie eingeloggt sein.';
+$string['rate_course:rate'] ='Bewerten Sie bitte den Kurs';
+$string['rating_alt0'] ='Bewertung: Keine Bewertungen abgegeben';
+$string['rating_altnum'] ='Bewertung: {$a} Sterne.';
+$string['rating_users'] ='Bewertet von {$a} Nutzer(n)';

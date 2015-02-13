@@ -26,7 +26,7 @@
  */
 
 function xmldb_block_rate_course_upgrade($oldversion=0) {
-    global $CFG, $THEME, $db, $DB;
+    global $CFG, $DB;
     $result = true;
     if ($oldversion < 2009020307) {
         $oldblock = $DB->get_record('block', array('name'=>'rate_unit'));

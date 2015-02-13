@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Strings for component 'block_rate_course', language 'he', branch 'MOODLE_20_STABLE'
  *
  * @package    block
  * @subpackage rate_course
@@ -26,9 +26,14 @@
  * @copyright &copy; 2011 Comverse LTD.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
+$string['courserating'] = 'דירוגי קורסים';
 
-$plugin->version = 2014101600;
-
-$plugin->requires     = 2010112400; // YYYYMMDDHH (This is the release version for Moodle 2.0).
-$plugin->maturity     = MATURITY_BETA;
-$plugin->release      = '1.0';
+$string['completed'] = 'תודה. כבר דירגת את קורס זה.';
+$string['giverating'] = 'דרג';
+$string['intro'] = 'נא לציין כמה ברצונך לדרג קורס זה.';
+$string['submit'] = 'שלח דירוג';
+$string['noguestuseage'] = 'לדירוג קורס זה תצטרך להתחבר.';
+$string['rate_course:rate'] ='דרג קורס';
+$string['rating_alt0'] ='דירוג קורס: לא נלשחו עדיין דירוגים.';
+$string['rating_altnum'] ='דירוג קורס: {$a} כוכבים.';
+$string['rating_users'] ='דורג על ידי {$a} משתמש(ים)';

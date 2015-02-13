@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Strings for component 'block_rate_course', language 'en', branch 'MOODLE_20_STABLE'
  *
  * @package    block
  * @subpackage rate_course
@@ -27,8 +27,18 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-$plugin->version = 2014101600;
+$string['pluginname'] = 'Graddau y Cwrs';
+$string['courserating'] = 'Graddau y Cwrs';
 
-$plugin->requires     = 2010112400; // YYYYMMDDHH (This is the release version for Moodle 2.0).
-$plugin->maturity     = MATURITY_BETA;
-$plugin->release      = '1.0';
+$string['completed'] = 'Diolch, rydych wedi rhoi gradd i&#x2019;r cwrs yma.';
+$string['giverating'] = 'Rhoddwch gradd';
+$string['intro'] = 'Nodwch pa mor uchel yw eich barn am y cwrs yma.';
+$string['submit'] = 'Cyflwyno fy radd';
+$string['noguestuseage'] = 'I raddio&#x2019;r cwrs yma bydd angen i chi mewngofnodi.';
+$string['rate_course:rate'] ='Rhowch gradd am y cwrs';
+$string['rating_alt0'] ='Gradd y Cwrs: Dim ar gael.';
+$string['rating_altnum'] ='Gradd y Cwrs: {$a} seren.';
+$string['rating_users'] ='Graddwyd gan {$a} defnyddiwr&#x0002F;-wyr';
+
+// Questionnaire integration.
+$string['viewreview'] = 'Gweler ymatebion holiadur';

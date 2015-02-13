@@ -42,6 +42,7 @@ $string['rating_alt0'] ='Course rating: No ratings given.';
 $string['rating_altnum'] ='Course rating: {$a} stars.';
 $string['rating_users'] ='Rated by {$a} user(s)';
 $string['editingsitehome'] = 'This block will display ratings on course pages only, and is hidden elsewhere.';
+$string['pleaselogin'] = 'Please Login to rate this resource.';
 
 // Questionnaire integration.
 $string['survey'] = 'What is the questionnaire name?';

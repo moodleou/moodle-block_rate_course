@@ -115,7 +115,7 @@ class block_rate_course extends block_list
      * @return string the html to output graphic, alt text and number of ratings
      */
     public function display_rating($courseid, $return=false) {
-        global $CFG, $DB;
+        global $CFG, $DB, $OUTPUT;
         $count = $DB->count_records('block_rate_course', array('course'=>$courseid));
         $ratedby = '';
         if ($count > 0) {
@@ -131,9 +131,8 @@ class block_rate_course extends block_list
             $alt = get_string( 'rating_altnum', 'block_rate_course', $numstars/2 );
         }
 
-        $res = '<img src="'.
-                        $CFG->wwwroot.'/blocks/rate_course/pix/rating_graphic.php?courseid='.
-                        $courseid.'" alt="'.$alt.'"/><br/>'.$ratedby;
+        $avg = $this->get_rating($courseid);
+        $res = '<img src="'.$OUTPUT->pix_url('star'.$avg, 'block_rate_course').'" alt="'.$alt.'"/><br/>'.$ratedby;
 
         if ($return) {
             return $res;
