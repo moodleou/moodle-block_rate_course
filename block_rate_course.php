@@ -42,6 +42,23 @@ class block_rate_course extends block_list
         return true; // Config only for review part.
     }
 
+    private function rating_block_form($id_course, $id_user) {
+        GLOBAL $DB, $CFG;
+        // code adapted from rate.php
+        $form = "<div style='text-align:center'>";
+        if (!$DB->get_record('block_rate_course', array('course' => $id_course, 'userid' => $id_user))) {
+            $form .='<form method="post" action="' . $CFG->wwwroot . '/blocks/rate_course/update.php"><p>'
+                    . '  <input name="id" type="hidden" value="' . $id_course . '" /></p><p>';
+            for ($i = 1; $i <= 5; $i++) {
+                $form .= '<input type="radio" name="grade" value="' . $i . '" alt="Rating of ' . $i . '" />' . $i . ' ';
+            }
+            $form .= '</p><p><input type="submit" value="' . get_string('submit', 'block_rate_course') . '" /></p></form>';
+        }
+        $form .= '</div >';
+
+        return $form;
+    }
+
     public function get_content() {
         global $CFG, $COURSE, $USER, $DB, $OUTPUT, $PAGE;
 
@@ -69,12 +86,7 @@ class block_rate_course extends block_list
                 }
             }
 
-            $this->content->icons[] = $OUTPUT->pix_icon('star', get_string('giverating', 'block_rate_course'),
-                            'block_rate_course', array('class'=>'icon'));
-            $url = new moodle_url('/blocks/rate_course/rate.php', array('courseid'=>$COURSE->id));
-            $this->content->items[] = $OUTPUT->action_link($url, get_string('giverating', 'block_rate_course'));
-            $this->content->items[] = '';
-            $this->content->icons[] = $OUTPUT->pix_icon('spacer', '');
+            $this->content->items[] = $this->rating_block_form($COURSE->id, $USER->id);
 
             // Output current rating.
             $this->content->footer = '<div class="centered">'.
