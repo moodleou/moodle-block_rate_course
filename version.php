@@ -28,7 +28,7 @@
  */
 
 $plugin->version = 2014101600;
-
+$plugin->component = "block_rate_course";
 $plugin->requires     = 2010112400; // YYYYMMDDHH (This is the release version for Moodle 2.0).
 $plugin->maturity     = MATURITY_BETA;
 $plugin->release      = '1.0';
