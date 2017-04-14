@@ -1,6 +1,15 @@
 Latest changes
 ==============
 
+14. April 2017
+--------------
+
+pulled changes from kmiksi 
+1) to have instant input
+2) remove project clutter
+
+added a line in version.php to allow the installtion in moodle 3.2
+
 28 Oct 2013
 -----------
 
