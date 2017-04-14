@@ -1,0 +1,18 @@
+# eclipse files
+/.settings
+/.project
+/.buildpath
+
+# git files
+/.git*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trash*
+Icon?
+ehthumbs.db
+Thumbs.db
+*~
