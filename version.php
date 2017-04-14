@@ -27,8 +27,8 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-$plugin->version = 2014101600;
-
+$plugin->version = 2014101601;
+$plugin->component = 'block_rate_course';
 $plugin->requires     = 2010112400; // YYYYMMDDHH (This is the release version for Moodle 2.0).
 $plugin->maturity     = MATURITY_BETA;
-$plugin->release      = '1.0';
+$plugin->release      = '1.01';
