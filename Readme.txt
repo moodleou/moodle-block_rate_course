@@ -28,5 +28,5 @@ CONTRIB-4415 Non-english Language packs removed
 5 July 2019
 -----------
 
-Add Block capabilities added
-CONTRIB-4415 Non-english Language packs removed
+Add Mustache templates support
+Add AMD scripts

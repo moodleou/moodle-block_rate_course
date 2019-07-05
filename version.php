@@ -25,12 +25,16 @@
  * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
  * @copyright &copy; 2011 Comverse LTD.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * 
+ * Code was Rewritten for Moodle 3.4 and sup by Pierre Duverneix.
+ * @copyright 2019 Pierre Duverneix.
+ * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version  = 2019070501;
+$plugin->version  = 2019070502;
 $plugin->requires = 2010112400;
 $plugin->component = 'block_rate_course';
 $plugin->cron = 0;

@@ -71,6 +71,7 @@ class rating implements renderable, templatable {
         }
 
         return [
+            'rating' => $starscount,
             'stars' => $stars,
             'half' => $half
         ];

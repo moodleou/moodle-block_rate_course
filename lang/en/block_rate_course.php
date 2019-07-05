@@ -25,6 +25,10 @@
  * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
  * @copyright &copy; 2011 Comverse LTD.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
+ * 
+ * Code was Rewritten for Moodle 3.4 and sup by Pierre Duverneix.
+ * @copyright 2019 Pierre Duverneix.
+ * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
 $string['rate_course:addinstance'] = 'Add a new course ratings block';
@@ -32,7 +36,7 @@ $string['rate_course:myaddinstance'] = 'rate Course My screen capability';
 $string['pluginname'] = 'Course ratings';
 $string['courserating'] = 'Course ratings';
 
-$string['completed'] = 'Thank you.  You have already given this course a rating.';
+$string['completed'] = 'Thank you. You have already given this course a rating.';
 $string['giverating'] = 'Give a rating';
 $string['intro'] = 'Please indicate how highly you rate this course.';
 $string['submit'] = 'Submit my rating';
@@ -47,3 +51,5 @@ $string['editingsitehome'] = 'This block will display ratings on course pages on
 $string['survey'] = 'What is the questionnaire name?';
 $string['survey_help'] = 'This is the questionnaire module which will be linked to (leave blank to stop link to questionnaire)';
 $string['viewreview'] = 'View questionnaire responses';
+
+$string['myrating'] = 'My rating';
