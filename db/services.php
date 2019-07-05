@@ -15,28 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines Workflow event handlers
  *
- * @package    block
- * @subpackage rate_course
- * @copyright  2009 Jenny Gray
+ * @package    block_rate_course
+ * @copyright  2019 Pierre Duverneix - Fondation UNIT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
- * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
- * @copyright &copy; 2011 Comverse LTD.
- * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-/* List of handlers. */
+defined('MOODLE_INTERNAL') || die;
 
-$handlers = array (
-
-/*
- * Course deleted.
-*/
-    'course_deleted' => array (
-        'handlerfile'      => '/blocks/rate_course/lib.php', // Where to call.
-        'handlerfunction'  => 'course_delete', // What to call.
-        'schedule'         => 'instant'
+$functions = array(
+    'block_rate_course_set_rating' => array(
+        'classname'     => 'block_rate_course_external',
+        'methodname'    => 'set_rating',
+        'description'   => 'Set the user rating',
+        'type'          => 'write',
+        'ajax'          => true,
+        'capabilities'  => 'block/rate_course:rate'
     )
 );

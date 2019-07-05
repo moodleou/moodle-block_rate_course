@@ -15,35 +15,36 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Rate course block backup
  *
- * @package    blocks
- * @subpackage rate_course
- * @copyright  2012 Open University
+ * @copyright  2019 Pierre Duverneix <pierre.duverneix@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+namespace block_rate_course\output;
+defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot . '/blocks/rate_course/backup/moodle2/backup_rate_course_stepslib.php');
+use plugin_renderer_base;
+use renderable;
 
-class backup_rate_course_block_task extends backup_block_task {
+class renderer extends plugin_renderer_base {
 
-    protected function define_my_settings() {
+    /**
+     *
+     * @param \templatable $output
+     * @return string|boolean
+     */
+    public function render_rating(\templatable $output) {
+        $data = $output->export_for_template($this);
+        return $this->render_from_template('block_rate_course/rating', $data);
     }
 
-    protected function define_my_steps() {
-        $this->add_step(new backup_rate_course_block_structure_step('rate_course_structure',
-            'rate_course.xml'));
+    /**
+     *
+     * @param \templatable $output
+     * @return string|boolean
+     */
+    public function render_rateform(\templatable $output) {
+        $data = $output->export_for_template($this);
+        return $this->render_from_template('block_rate_course/rate-form', $data);
     }
 
-    public function get_fileareas() {
-        return array();
-    }
-
-    public function get_configdata_encoded_attributes() {
-        return array();
-    }
-
-    static public function encode_content_links($content) {
-        return $content; // No special encoding of links.
-    }
 }

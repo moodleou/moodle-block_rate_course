@@ -1,0 +1,27 @@
+<div id="block_rate_course-{{uniqid}}" data-region="block_rate_course-rate"> 
+    <span class="star" data-value="1">
+        {{# pix }} star, block_rate_course {{/ pix }}
+    </span>
+    <span class="star" data-value="2">
+        {{# pix }} star, block_rate_course {{/ pix }}
+    </span>
+    <span class="star" data-value="3">
+        {{# pix }} star, block_rate_course {{/ pix }}
+    </span>
+    <span class="star" data-value="4">
+        {{# pix }} star, block_rate_course {{/ pix }}
+    </span>
+    <span class="star" data-value="5">
+        {{# pix }} star, block_rate_course {{/ pix }}
+    </span>
+
+    <div>
+        <span>My rating :</span>
+        <span id="block_rate_course-myrating">{{{myrating}}}</span>
+    </div>
+</div>
+{{#js}}
+require(['block_rate_course/rate'], function(RateAction) {
+    new RateAction('[data-region="block_rate_course-rate"]', {{courseid}});
+});
+{{/js}}
