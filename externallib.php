@@ -16,7 +16,7 @@
 
 /**
  *
- * @package    mod_ovmsurvey
+ * @package    block_rate_course
  * @copyright  2019 Pierre Duverneix - Fondation UNIT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

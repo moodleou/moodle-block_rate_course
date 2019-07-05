@@ -17,30 +17,36 @@
 {{!
     @template block_rate_course/rate-form
 }}
-<div id="block_rate_course-{{uniqid}}" data-region="block_rate_course-rate"> 
-    <span class="star" data-value="1">
-        {{# pix }} star, block_rate_course {{/ pix }}
-    </span>
-    <span class="star" data-value="2">
-        {{# pix }} star, block_rate_course {{/ pix }}
-    </span>
-    <span class="star" data-value="3">
-        {{# pix }} star, block_rate_course {{/ pix }}
-    </span>
-    <span class="star" data-value="4">
-        {{# pix }} star, block_rate_course {{/ pix }}
-    </span>
-    <span class="star" data-value="5">
-        {{# pix }} star, block_rate_course {{/ pix }}
-    </span>
-
-    <div>
+<div id="block_rate_course-stars" data-region="block_rate_course-rate">
+    <div id="block_rate_course-stars-area" class="{{#myrating}}hidden{{/myrating}}">
+        <span class="star" data-value="1">
+            {{# pix }} star-blank, block_rate_course {{/ pix }}
+        </span>
+        <span class="star" data-value="2">
+            {{# pix }} star-blank, block_rate_course {{/ pix }}
+        </span>
+        <span class="star" data-value="3">
+            {{# pix }} star-blank, block_rate_course {{/ pix }}
+        </span>
+        <span class="star" data-value="4">
+            {{# pix }} star-blank, block_rate_course {{/ pix }}
+        </span>
+        <span class="star" data-value="5">
+            {{# pix }} star-blank, block_rate_course {{/ pix }}
+        </span>
+    </div>
+    
+    <div id="block_rate_course-myrating-area" class="{{^myrating}}hidden{{/myrating}} mb-3 mt-3">
         <span>{{# str }} myrating, block_rate_course {{/ str }}</span> :
         <span id="block_rate_course-myrating">{{{myrating}}}</span>
     </div>
+
+    <a id="block_rate_course-rerate" href="javascript:void(0);">
+        {{# str }} rerate, block_rate_course {{/ str }}
+    </a>
 </div>
 {{#js}}
 require(['block_rate_course/rate'], function(RateAction) {
-    new RateAction('[data-region="block_rate_course-rate"]', {{courseid}});
+    new RateAction('[data-region="block_rate_course-rate"]', {{courseid}}, {{israted}});
 });
 {{/js}}

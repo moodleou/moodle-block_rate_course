@@ -37,7 +37,11 @@ class rateform implements renderable, templatable {
         global $DB, $USER;
 
         $myrating = $DB->get_record('block_rate_course', array('course' => $courseid, 'userid' => $USER->id));
-        return $myrating->rating;
+        if ($myrating) {
+            return $myrating->rating;
+        } else {
+            return '';
+        }
     }
     
     /**
@@ -48,8 +52,13 @@ class rateform implements renderable, templatable {
      */
     public function export_for_template(renderer_base $output) {
         $myrating = self::get_my_ratting($this->courseid);
+        $israted = false;
+        if ($myrating) {
+            $israted = true;
+        }
 
         return [
+            'israted' => $israted,
             'myrating' => $myrating,
             'courseid' => $this->courseid
         ];

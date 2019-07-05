@@ -1,10 +1,13 @@
 define(['jquery', 'core/ajax', 'core/notification'],
 function($, ajax, notification) {
 
-    var RateAction = function(selector, courseid) {
+    var RateAction = function(selector, courseid, israted) {
         this._region = $(selector);
         this._courseid = courseid;
+        this._israted = israted;
+
         this._region.find('.star').unbind().on('click', 'img', this._setUserChoice.bind(this));
+        this._region.find('#block_rate_course-rerate').on('click', this._rerateCourse.bind(this));
     };
 
     RateAction.prototype._setUserChoice = function(element) {
@@ -20,6 +23,8 @@ function($, ajax, notification) {
                 },
                 done: function(data) {
                     if (data === true) {
+                        this._region.find('#block_rate_course-myrating-area').removeClass('hidden');
+                        this._region.find('#block_rate_course-stars-area').addClass('hidden');
                         this._region.find('#block_rate_course-myrating').text(value);
                     }
                     return true;
@@ -27,6 +32,10 @@ function($, ajax, notification) {
                 fail: notification.exception
             }]);
         }
+    };
+
+    RateAction.prototype._rerateCourse = function() {
+        this._region.find('#block_rate_course-stars-area').removeClass('hidden');
     };
 
     return RateAction;

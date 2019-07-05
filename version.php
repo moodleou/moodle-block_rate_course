@@ -34,9 +34,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version  = 2019070502;
+$plugin->version  = 2019070504;
 $plugin->requires = 2010112400;
 $plugin->component = 'block_rate_course';
 $plugin->cron = 0;
-$plugin->release = '3.0';
+$plugin->release = '2.0';
 $plugin->maturity = MATURITY_STABLE;

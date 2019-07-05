@@ -35,6 +35,10 @@
 class block_rate_course extends block_list {
     public function init() {
         $this->title = get_string('courserating', 'block_rate_course');
+        $config = get_config('block_rate_course');
+        if ($config && $config->customtitle) {
+            $this->title = $config->customtitle;
+        }
     }
 
     public function applicable_formats() {
@@ -52,9 +56,21 @@ class block_rate_course extends block_list {
             return $this->content;
         }
 
+        $config = get_config('block_rate_course');
+        
         $this->content = new stdClass;
         $this->content->items = array();
         $this->content->icons = array();
+
+       
+        if ($config && $config->description) {
+            $description = '<div class="alert alert-info alert-dismissible fade show" role="alert">';
+            $description .= $config->description;
+            $description .= '<button type="button" class="close" data-dismiss="alert" aria-label="x">';
+            $description .= '<span aria-hidden="true">&times;</span></button></div>';
+           
+            $this->content->items[] = $description;
+        }
 
         $form = new \block_rate_course\output\rateform($COURSE->id);
         $renderer = $this->page->get_renderer('block_rate_course');

@@ -28,5 +28,11 @@ CONTRIB-4415 Non-english Language packs removed
 5 July 2019
 -----------
 
+Remove the link to the questionnaire as it needs an up to date support
 Add Mustache templates support
 Add AMD scripts
+Add user's ability to modify its previous rating
+Todo : 
+  - rebuild the link to questionnaire option
+  - add settings to allow/disable re-rating
+  - refresh the global rating of the course after the user rating submission

@@ -52,4 +52,6 @@ $string['survey'] = 'What is the questionnaire name?';
 $string['survey_help'] = 'This is the questionnaire module which will be linked to (leave blank to stop link to questionnaire)';
 $string['viewreview'] = 'View questionnaire responses';
 
+$string['customtitle'] = 'Custom title';
 $string['myrating'] = 'My rating';
+$string['rerate'] = 'Rate again';
