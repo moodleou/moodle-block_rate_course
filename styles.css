@@ -1,0 +1,10 @@
+#block_rate_course-stars .star img,
+#block_rate_course-rating img {
+    width: 30px;
+    height: 30px;
+}
+
+#block_rate_course-stars .star img:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+}

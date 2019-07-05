@@ -25,12 +25,14 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 function xmldb_block_rate_course_upgrade($oldversion=0) {
-    global $CFG, $DB;
+    global $CFG, $THEME, $db, $DB;
     $result = true;
     if ($oldversion < 2009020307) {
-        $oldblock = $DB->get_record('block', array('name'=>'rate_unit'));
-        $newblock = $DB->get_record('block', array('name'=>'rate_course'));
+        $oldblock = $DB->get_record('block', array('name' => 'rate_unit'));
+        $newblock = $DB->get_record('block', array('name' => 'rate_course'));
 
         if ($oldblock) {
             // First migrate data from rate_unit.
@@ -46,9 +48,9 @@ function xmldb_block_rate_course_upgrade($oldversion=0) {
                 }
             }
 
-            //  Swap the block instances over.
+            // Swap the block instances over.
             $instances = $DB->get_records('block_instance',
-                    array('blockid'=>$oldblock->id));
+                    array('blockid' => $oldblock->id));
             if (!empty($instances)) {
                 foreach ($instances as $instance) {
                     $instance->blockid = $newblock->id;
@@ -56,7 +58,7 @@ function xmldb_block_rate_course_upgrade($oldversion=0) {
                 }
             }
             $instances = $DB->get_records('block_pinned',
-                    array('blockid'=>$oldblock->id));
+                    array('blockid' => $oldblock->id));
             if (!empty($instances)) {
                 foreach ($instances as $instance) {
                     $instance->blockid = $newblock->id;
@@ -65,7 +67,7 @@ function xmldb_block_rate_course_upgrade($oldversion=0) {
             }
 
             // Delete the old block stuff.
-            $DB->delete_records('block', array('id'=>$oldblock->id));
+            $DB->delete_records('block', array('id' => $oldblock->id));
             $DB->drop_plugin_tables($oldblock->name,
                     "$CFG->dirroot/blocks/$oldblock->name/db/install.xml",
                     false); // Old obsoleted table names.
