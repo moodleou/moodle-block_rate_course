@@ -52,7 +52,7 @@ class rating implements renderable, templatable {
         }
         return $avg;
     }
-    
+
     /**
      * Export this data so it can be used as the context for a mustache template.
      *

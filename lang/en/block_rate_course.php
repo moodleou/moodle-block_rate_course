@@ -25,7 +25,7 @@
  * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
  * @copyright &copy; 2011 Comverse LTD.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * 
+ *
  * Code was Rewritten for Moodle 3.4 and sup by Pierre Duverneix.
  * @copyright 2019 Pierre Duverneix.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
@@ -41,10 +41,10 @@ $string['giverating'] = 'Give a rating';
 $string['intro'] = 'Please indicate how highly you rate this course.';
 $string['submit'] = 'Submit my rating';
 $string['noguestuseage'] = 'To rate this course you will need to log in.';
-$string['rate_course:rate'] ='Give a rating to a course';
-$string['rating_alt0'] ='Course rating: No ratings given.';
-$string['rating_altnum'] ='Course rating: {$a} stars.';
-$string['rating_users'] ='Rated by {$a} user(s)';
+$string['rate_course:rate'] = 'Give a rating to a course';
+$string['rating_alt0'] = 'Course rating: No ratings given.';
+$string['rating_altnum'] = 'Course rating: {$a} stars.';
+$string['rating_users'] = 'Rated by {$a} user(s)';
 $string['editingsitehome'] = 'This block will display ratings on course pages only, and is hidden elsewhere.';
 
 // Questionnaire integration.

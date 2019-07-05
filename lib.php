@@ -25,7 +25,7 @@
  * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
  * @copyright &copy; 2011 Comverse LTD.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * 
+ *
  * Code was Rewritten for Moodle 3.4 and sup by Pierre Duverneix.
  * @copyright 2019 Pierre Duverneix.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
@@ -36,10 +36,13 @@
  * @param $eventdata object event information including course id
  * @return SQL set or false on fail
  */
+
+ defined('MOODLE_INTERNAL') || die();
+
 function course_delete($eventdata) {
     global $DB;
     $res = $DB->delete_records('block_rate_course',
-            array('course'=>$eventdata->id));
+            array('course' => $eventdata->id));
     if ($res === false) {
         return $res;
     }

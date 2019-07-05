@@ -26,11 +26,13 @@
  * Code was Rewritten for Moodle 2.X By Atar + Plus LTD for Comverse LTD.
  * @copyright &copy; 2011 Comverse LTD.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
- * 
+ *
  * Code was Rewritten for Moodle 3.4 and sup by Pierre Duverneix.
  * @copyright 2019 Pierre Duverneix.
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
+
+defined('MOODLE_INTERNAL') || die;
 
 class block_rate_course extends block_list {
     public function init() {
@@ -57,18 +59,17 @@ class block_rate_course extends block_list {
         }
 
         $config = get_config('block_rate_course');
-        
+
         $this->content = new stdClass;
         $this->content->items = array();
         $this->content->icons = array();
 
-       
         if ($config && $config->description) {
             $description = '<div class="alert alert-info alert-dismissible fade show" role="alert">';
             $description .= $config->description;
             $description .= '<button type="button" class="close" data-dismiss="alert" aria-label="x">';
             $description .= '<span aria-hidden="true">&times;</span></button></div>';
-           
+
             $this->content->items[] = $description;
         }
 
@@ -81,8 +82,7 @@ class block_rate_course extends block_list {
 
         // Output current rating.
         $this->content->footer = '<div class="text-center">'.$renderer->render($rating).'</div>';
-        
-        return $this->content;
 
+        return $this->content;
     }
 }

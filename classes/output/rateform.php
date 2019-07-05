@@ -43,7 +43,7 @@ class rateform implements renderable, templatable {
             return '';
         }
     }
-    
+
     /**
      * Export this data so it can be used as the context for a mustache template.
      *

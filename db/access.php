@@ -25,6 +25,8 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 $capabilities = array(
 
     'block/rate_course:addinstance' => array(
@@ -40,15 +42,15 @@ $capabilities = array(
         'clonepermissionsfrom' => 'moodle/site:manageblocks'
     ),
 
-        'block/rate_course:myaddinstance' => array(
-                'riskbitmask' => RISK_SPAM | RISK_XSS,
-        
-                'captype' => 'write',
-                'contextlevel' => CONTEXT_BLOCK,
-                'archetypes' => array(
-                        'user' => CAP_ALLOW
-                ),
-        ),
+    'block/rate_course:myaddinstance' => array(
+            'riskbitmask' => RISK_SPAM | RISK_XSS,
+
+            'captype' => 'write',
+            'contextlevel' => CONTEXT_BLOCK,
+            'archetypes' => array(
+                    'user' => CAP_ALLOW
+            ),
+    ),
 
     'block/rate_course:rate' => array(
         'captype' => 'write',
