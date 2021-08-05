@@ -37,7 +37,8 @@ if (! $course = $DB->get_record("course", array("id"=>$id))) {
 }
 
 require_login($course, false);
-if (!$context = context_course::instance($course->id)) {
+//if (!$context = get_context_instance(CONTEXT_COURSE, $course->id)) {
+if(!$context = context_course::instance($course->id)){
     print_error('nocontext');
 }
 
