@@ -28,46 +28,47 @@
  */
 
 require_once( '../../config.php' );
+require_once( $CFG->dirroot .'/lib/pagelib.php' );
 
 $courseid = required_param( 'courseid', PARAM_INT );
-$course = get_course($courseid);
-$context = context_course::instance($course->id);
-
+//  Load the course.
+$course = $DB->get_record('course', array('id'=>$courseid));
+global $COURSE, $PAGE;
+$COURSE = $course;
+$context = context_course::instance($courseid);//get_context_instance(CONTEXT_COURSE, $courseid);
 $PAGE->set_context($context);
-$PAGE->set_course($course);
-$PAGE->set_url('/blocks/rate_course/rate.php', array('courseid' => $courseid));
+$PAGE->set_url('/blocks/rate_course/rate.php', array('courseid'=>$courseid));
 $title = get_string('giverating', 'block_rate_course');
-$PAGE->navbar->add($title);
-$PAGE->set_title($title);
-$PAGE->set_heading($title);
-
-echo $OUTPUT->header();
+//$link[] = array('name' => $title, 'link' => '', 'type' => 'misc');
+//$link = build_navigation($link);
+$PAGE->navbar->add($title,'');
+//$PAGE->set_url('/mod/mymodulename/view.php', array('id' => $cm->id));
+//print_header_simple($title, $title, $link);
+$OUTPUT->header();
+//$PAGE->set_title($title);
+//$PAGE->set_heading($title);
 
 //  Require user to be logged in to view this page.
-if (!isloggedin()) {
-    $msg = html_writer::tag('p', get_string('pleaselogin', 'block_rate_course'));
-    echo html_writer::tag('div', $msg);
+if ((!isloggedin() || isguestuser())) {
+    notice_yesno(get_string('noguestuseage', 'block_rate_course').'<br /><br />'.get_string('liketologin'),
+    $CFG->wwwroot.'/login/index.php', get_referer(false));
     echo $OUTPUT->footer();
     exit();
 }
-
 require_capability('block/rate_course:rate', $context);
 
-echo html_writer::start_tag('div', array('style' => 'text-align:center'));
-
+echo "<div style='text-align:center'>";
 $block = block_instance('rate_course');
 $block->display_rating($course->id);
 
-$existinganswer = $DB->get_record('block_rate_course',
+$existing_answer = $DB->get_record('block_rate_course',
         array('course'=>$course->id, 'userid'=>$USER->id));
-if ($existinganswer) {
-    $ratetext = get_string('completed', 'block_rate_course');
+if ($existing_answer) {
+    $rate_text = get_string('completed', 'block_rate_course');
 } else {
-    $ratetext = get_string('intro', 'block_rate_course');
+    $rate_text = get_string('intro', 'block_rate_course');
 }
-$ratetext = html_writer::tag('p', $ratetext);
-$ratetext = html_writer::tag('div', $ratetext);
-echo $ratetext;
+echo "<div><p>$rate_text</p></div>";
 
 // Now output the form.
 echo '<form method="post" action="'.
@@ -76,25 +77,25 @@ echo '<form method="post" action="'.
 
 for ($i = 1; $i <= 5; $i++) {
     $checked = '';
-    if (isset($existinganswer) && ($existinganswer !== false)) {
-        if ($existinganswer->rating == $i) {
+    if (isset($existing_answer) && ($existing_answer !== false)) {
+        if ($existing_answer->rating == $i) {
                 $checked = 'checked="checked"';
         }
     }
 
     echo '<input type="radio" name="grade" ';
-    if ($existinganswer) {
+    if ($existing_answer) {
         echo 'disabled="disabled" ';
     }
     echo 'value="'.$i.'" '.$checked.' alt="Rating of '.$i.'"  />'.$i.' ';
 }
 
 echo '</p><p><input type="submit" value="'.get_string('submit', 'block_rate_course').'"';
-if ($existinganswer) {
+if ($existing_answer) {
     echo 'disabled';
 }
 echo '/></p></form>';
 
-echo html_writer::end_tag('div');
+echo '</div>';
 
-echo $OUTPUT->footer();
+echo $OUTPUT->footer($course);
